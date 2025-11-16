@@ -3,6 +3,7 @@
 <head>
 <META http-equiv=Content-Type content="text/html; charset=UTF-8">
 <title>跃迁思维</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 <style type="text/css">
 body {
@@ -10,10 +11,11 @@ body {
     font-size: 12pt;
     color: #333;
     line-height: 1.6;
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape mode */
 }
 .container {
     max-width: 800px;
-    margin: 20px;
+    margin: 20px auto; /* Centering the container */
     padding: 20px;
     background: #fff;
     border-radius: 8px;
@@ -46,6 +48,35 @@ li {
     padding: 10px;
     border-radius: 4px;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 11pt;
+    }
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    .header {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 10pt;
+    }
+    .container {
+        margin: 5px;
+        padding: 10px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .header {
+        font-size: 1.2em;
+    }
+}
 </style>
 </head>
 <body >
@@ -74,7 +105,7 @@ li {
             <li>环境</li>
             <li>社交</li>
             <li>传承</li>
-            <li><a href="https://qjumplife.github.io/mygroupchatter/private/%E6%88%91%E7%9A%84%E6%88%BF%E9%97%B4">我的房间</a> (密码: 1)</li>
+            <li><a href="https://tranquil-cobbler-6f814a.netlify.app/private/%E6%88%91%E7%9A%84%E6%88%BF%E9%97%B4">我的房间</a> (密码: 1)</li>
         </ul>
         
         <p><strong>年费：</strong>99元</p>
