@@ -10,51 +10,50 @@
 body {
     font-family: 'Noto Sans SC', sans-serif;
     font-size: 16px;
-    color: #333;
+    color: #444;
     line-height: 1.8;
-    background-color: #f0f2f5;
+    background-color: #f4f7f6;
     -webkit-text-size-adjust: 100%;
 }
 .container {
-    max-width: 800px;
+    max-width: 960px;
     margin: 40px auto;
     padding: 40px;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
 }
 .header {
     text-align: center;
-    color: #1a237e;
+    color: #2c3e50;
     font-weight: 700;
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+.subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 40px;
 }
 h2 {
-    color: #3f51b5;
-    border-bottom: 2px solid #3f51b5;
+    color: #34495e;
+    border-bottom: 3px solid #3498db;
     padding-bottom: 10px;
-    margin-top: 30px;
-}
-h3 {
-    color: #5c6bc0;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 a {
-    color: #303f9f;
+    color: #3498db;
     text-decoration: none;
     transition: color 0.3s;
 }
 a:hover {
-    color: #1a237e;
-    text-decoration: underline;
-}
-.responsive-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+    color: #2980b9;
 }
 .service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
     list-style-type: none;
     padding: 0;
     margin-top: 20px;
@@ -62,77 +61,92 @@ a:hover {
 .service-item {
     display: flex;
     align-items: center;
-    background: #f9f9fa;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ecf0f1;
     transition: box-shadow 0.3s, transform 0.3s;
 }
 .service-item:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
 }
 .service-item img {
-    width: 60px;
+    width: 50px;
     height: auto;
-    vertical-align: middle;
     margin-left: 15px;
     border-radius: 4px;
+    transition: transform 0.3s ease-in-out; /* Add transition */
+}
+
+.service-item img:hover {
+    transform: scale(1.1); /* Zoom in on hover */
+}
+.pricing-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.pricing-tier {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #ecf0f1;
+    text-align: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.pricing-tier:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+.pricing-tier h3 {
+    color: #3498db;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+.pricing-tier .price {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #2c3e50;
+}
+.pricing-tier .price span {
+    font-size: 0.5em;
+    color: #7f8c8d;
 }
 .payment-info {
-    margin-top: 40px;
-    padding: 20px;
-    background: #f9f9fa;
-    border-radius: 8px;
+    margin-top: 50px;
+    padding: 30px;
+    background: #f8f9f9;
+    border-radius: 10px;
     text-align: center;
 }
 .payment-qr-codes {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 .payment-qr-codes img {
-    width: 200px;
+    width: 180px;
     border: 1px solid #ddd;
     padding: 5px;
     border-radius: 8px;
+    transition: transform 0.3s ease-in-out; /* Add transition */
 }
 
-/* Responsive adjustments */
+.payment-qr-codes img:hover {
+    transform: scale(1.05); /* Slightly zoom in on hover */
+}
+
 @media (max-width: 768px) {
     .container {
         margin: 20px;
         padding: 20px;
     }
     .header {
-        font-size: 2em;
-    }
-    .payment-qr-codes {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
-    .container {
-        margin: 10px;
-        padding: 15px;
-    }
-    .header {
-        font-size: 1.8em;
-    }
-    .service-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .service-item img {
-        margin-left: 0;
-        margin-top: 10px;
+        font-size: 2.2em;
     }
 }
 </style>
@@ -140,11 +154,25 @@ a:hover {
 <body>
 <div class="container">
     <h1 class="header">跃迁思维</h1>
-    <p>是以提供人生跃迁相关工具资源的综合性平台。</p>
+    <p class="subtitle">一个提供人生跃迁工具与资源的综合性平台</p>
     
-    <h2>跃迁思维会员订阅服务</h2>
-    
-    <h3>内容：</h3>
+    <h2>会员服务</h2>
+    <div class="pricing-table">
+        <div class="pricing-tier">
+            <h3>普通会员</h3>
+            <div class="price">99<span>元/年</span></div>
+        </div>
+        <div class="pricing-tier">
+            <h3>高级会员</h3>
+            <div class="price">999<span>元/年</span></div>
+        </div>
+        <div class="pricing-tier">
+            <h3>尊享会员</h3>
+            <div class="price">9999<span>元/年</span></div>
+        </div>
+    </div>
+
+    <h2>核心工具</h2>
     <ul class="service-list">
         <li class="service-item">
             目标管理系统
@@ -153,10 +181,13 @@ a:hover {
             </a>
         </li>
         <li class="service-item">
-            跃迁笔记
+            跃迁笔记 (Android)
             <a href="跃迁笔记-跃迁思维出品-android版本.jpg" data-lightbox="gallery" data-title="跃迁笔记 Android 版本">
                 <img src="跃迁笔记-跃迁思维出品-android版本.jpg" alt="跃迁笔记 Android 版本">
             </a>
+        </li>
+        <li class="service-item">
+            跃迁笔记 (Windows)
             <a href="跃迁笔记-跃迁思维出品-windows版本.png" data-lightbox="gallery" data-title="跃迁笔记 Windows 版本">
                 <img src="跃迁笔记-跃迁思维出品-windows版本.png" alt="跃迁笔记 Windows 版本">
             </a>
@@ -185,35 +216,31 @@ a:hover {
                 <img src="%E6%B4%9E%E8%A7%81.png" alt="洞见">
             </a>
         </li>
+        <li class="service-item">我的房间 (<a href="https://tranquil-cobbler-6f814a.netlify.app/private/%E6%88%91%E7%9A%84%E6%88%BF%E9%97%B4" target="_blank">访问</a>)</li>
+    </ul>
+
+    <h2>核心理念</h2>
+    <ul class="service-list">
         <li class="service-item">环境：旨在提供成长的优良环境</li>
         <li class="service-item">社交：旨在连接长久的社交关系</li>
         <li class="service-item">传承：旨在让经验和观念在一代代人真正地传承下去</li>
         <li class="service-item">远见：旨在让人看见未来的可能</li>
-        <li class="service-item"><a href="https://tranquil-cobbler-6f814a.netlify.app/private/%E6%88%91%E7%9A%84%E6%88%BF%E9%97%B4" target="_blank">我的房间</a> (密码: 1)</li>
     </ul>
     
     <div class="payment-info">
-        <h3>会员费用：</h3>
-        <ul>
-            <li><strong>普通会员：</strong>99元/年</li>
-            <li><strong>高级会员：</strong>999元/年</li>
-            <li><strong>尊享会员：</strong>9999元/年</li>
-        </ul>
-        
+        <h2>联系与支付</h2>
         <p>
             <strong>微信：</strong>qjumplife<br>
             <strong>邮箱：</strong><a href="mailto:qjumplife@outlook.com">qjumplife@outlook.com</a><br>
-            <strong>网址：</strong><a href="https://harmonious-otter-452dc3.netlify.app">harmonious-otter-452dc3.netlify.app</a>
+            <strong>备用网址：</strong><a href="https://harmonious-otter-452dc3.netlify.app">harmonious-otter-452dc3.netlify.app</a>
         </p>
-        
-        <p>付款后微信或邮箱联系我，可能回复不及时，敬请谅解。</p>
-
+        <p>付款后请通过微信或邮箱联系我开通权限，可能回复不及时，敬请谅解。</p>
         <div class="payment-qr-codes">
-            <a href="w.png" data-lightbox="gallery" data-title="微信二维码">
-                <img src="w.png" class="responsive-img">
+            <a href="w.png" data-lightbox="gallery" data-title="微信支付">
+                <img src="w.png" alt="微信支付">
             </a>
-            <a href="z.jpg" data-lightbox="gallery" data-title="支付宝二维码">
-                <img src="z.jpg" class="responsive-img">
+            <a href="z.jpg" data-lightbox="gallery" data-title="支付宝支付">
+                <img src="z.jpg" alt="支付宝支付">
             </a>
         </div>
     </div>
