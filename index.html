@@ -149,6 +149,26 @@ a:hover {
         font-size: 2.2em;
     }
 }
+.pricing-tier .features-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 25px;
+    color: #666;
+    font-size: 0.9em;
+    text-align: left;
+}
+.pricing-tier .features-list li {
+    margin-bottom: 12px;
+    padding-left: 22px;
+    position: relative;
+}
+.pricing-tier .features-list li:before {
+    content: '✓';
+    color: #27ae60;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -161,14 +181,29 @@ a:hover {
         <div class="pricing-tier">
             <h3>普通会员</h3>
             <div class="price">99<span>元/年</span></div>
+            <ul class="features-list">
+                <li>进普通会员群</li>
+                <li>信息接收者</li>
+                <li>没有一对一的交互</li>
+            </ul>
         </div>
         <div class="pricing-tier">
             <h3>高级会员</h3>
             <div class="price">999<span>元/年</span></div>
+            <ul class="features-list">
+                <li>进高级会员群</li>
+                <li>有一定的指导</li>
+                <li>有交付动作</li>
+            </ul>
         </div>
         <div class="pricing-tier">
             <h3>尊享会员</h3>
             <div class="price">9999<span>元/年</span></div>
+            <ul class="features-list">
+                <li>进尊享会员群</li>
+                <li>一定次数的指导教学</li>
+                <li>提供定制与交流</li>
+            </ul>
         </div>
     </div>
 
