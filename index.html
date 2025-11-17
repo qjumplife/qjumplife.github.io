@@ -7,53 +7,66 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 <style type="text/css">
+:root {
+    --primary-color: #007bff;
+    --primary-color-hover: #0056b3;
+    --text-color: #333;
+    --text-color-light: #666;
+    --bg-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
 body {
     font-family: 'Noto Sans SC', sans-serif;
     font-size: 16px;
-    color: #444;
+    color: var(--text-color);
     line-height: 1.8;
-    background-color: #f4f7f6;
-    -webkit-text-size-adjust: 100%;
+    background-color: var(--bg-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .container {
-    max-width: 960px;
-    margin: 40px auto;
-    padding: 40px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    max-width: 980px;
+    margin: 50px auto;
+    padding: 50px;
+    background: var(--surface-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px var(--shadow-color);
 }
 .header {
     text-align: center;
-    color: #2c3e50;
+    color: var(--text-color);
     font-weight: 700;
-    font-size: 3em;
-    margin-bottom: 15px;
+    font-size: 2.8em;
+    margin-bottom: 10px;
 }
 .subtitle {
     text-align: center;
-    color: #7f8c8d;
-    margin-bottom: 40px;
+    color: var(--text-color-light);
+    margin-bottom: 60px;
+    font-size: 1.1em;
 }
 h2 {
-    color: #34495e;
-    border-bottom: 3px solid #3498db;
-    padding-bottom: 10px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
 a {
-    color: #3498db;
+    color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.2s ease-in-out;
 }
 a:hover {
-    color: #2980b9;
+    color: var(--primary-color-hover);
 }
 .service-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 25px;
     list-style-type: none;
     padding: 0;
     margin-top: 20px;
@@ -61,113 +74,150 @@ a:hover {
 .service-item {
     display: flex;
     align-items: center;
-    background: #ffffff;
+    background: var(--surface-color);
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #ecf0f1;
-    transition: box-shadow 0.3s, transform 0.3s;
+    border: 1px solid var(--border-color);
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 .service-item:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+}
+.service-item strong {
+    color: var(--text-color);
+    white-space: nowrap;
 }
 .service-item img {
-    width: 50px;
-    height: auto;
+    width: 45px;
+    height: 45px;
     margin-left: 15px;
-    border-radius: 4px;
-    transition: transform 0.3s ease-in-out; /* Add transition */
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
 }
-
-.service-item img:hover {
-    transform: scale(1.1); /* Zoom in on hover */
+.service-item:hover img {
+    transform: scale(1.1);
 }
 .pricing-table {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 .pricing-tier {
-    background: #ffffff;
+    background: var(--surface-color);
     padding: 30px;
-    border-radius: 10px;
-    border: 1px solid #ecf0f1;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
     text-align: center;
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: all 0.2s ease-in-out;
+    position: relative;
 }
 .pricing-tier:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
     transform: translateY(-5px);
 }
+.pricing-tier-recommended {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+.pricing-tier-recommended::before {
+    content: '推荐';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
 .pricing-tier h3 {
-    color: #3498db;
+    color: var(--primary-color);
     font-size: 1.5em;
     margin-top: 0;
+    margin-bottom: 15px;
 }
 .pricing-tier .price {
-    font-size: 2.5em;
+    font-size: 2.8em;
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--text-color);
 }
 .pricing-tier .price span {
     font-size: 0.5em;
-    color: #7f8c8d;
+    color: var(--text-color-light);
+}
+.features-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    font-size: 0.9em;
+    color: var(--text-color-light);
+    overflow: hidden;
+    max-height: 0;
+    margin-top: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-in, margin-top 0.3s ease-out;
+}
+.features-list li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+.features-list li::before {
+    content: '✓';
+    color: #28a745;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+.pricing-tier:hover .features-list {
+    max-height: 120px; /* Adjust as needed for content */
+    margin-top: 25px;
+    opacity: 1;
 }
 .payment-info {
-    margin-top: 50px;
-    padding: 30px;
-    background: #f8f9f9;
-    border-radius: 10px;
+    margin-top: 70px;
+    padding: 40px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     text-align: center;
 }
 .payment-qr-codes {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 40px;
+    margin-top: 25px;
     flex-wrap: wrap;
 }
 .payment-qr-codes img {
     width: 180px;
-    border: 1px solid #ddd;
-    padding: 5px;
     border-radius: 8px;
-    transition: transform 0.3s ease-in-out; /* Add transition */
+    transition: transform 0.2s ease-in-out;
 }
-
 .payment-qr-codes img:hover {
-    transform: scale(1.05); /* Slightly zoom in on hover */
+    transform: scale(1.05);
 }
-
+@media (max-width: 992px) {
+    .pricing-table {
+        grid-template-columns: 1fr;
+    }
+    .pricing-tier-recommended {
+        transform: scale(1); /* Disable scaling on smaller screens */
+    }
+}
 @media (max-width: 768px) {
     .container {
         margin: 20px;
-        padding: 20px;
+        padding: 25px;
     }
     .header {
         font-size: 2.2em;
     }
-}
-.pricing-tier .features-list {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 25px;
-    color: #666;
-    font-size: 0.9em;
-    text-align: left;
-}
-.pricing-tier .features-list li {
-    margin-bottom: 12px;
-    padding-left: 22px;
-    position: relative;
-}
-.pricing-tier .features-list li:before {
-    content: '✓';
-    color: #27ae60;
-    position: absolute;
-    left: 0;
-    font-weight: bold;
 }
 </style>
 </head>
@@ -187,7 +237,7 @@ a:hover {
                 <li>没有一对一的交互</li>
             </ul>
         </div>
-        <div class="pricing-tier">
+        <div class="pricing-tier pricing-tier-recommended">
             <h3>高级会员</h3>
             <div class="price">999<span>元/年</span></div>
             <ul class="features-list">
@@ -251,23 +301,23 @@ a:hover {
                 <img src="%E6%B4%9E%E8%A7%81.png" alt="洞见">
             </a>
         </li>
-        <li class="service-item">我的房间 (<a href="https://tranquil-cobbler-6f814a.netlify.app/private/%E6%88%91%E7%9A%84%E6%88%BF%E9%97%B4" target="_blank">访问</a>)</li>
+        <li class="service-item"><span style="white-space: nowrap;">我的房间 (<a href="https://super-kangaroo-8fda01.netlify.app/private/%E6%88%91%E7%9A%84%E6%88%BF%E9%97%B4" target="_blank">访问</a>)</span><span style="margin-left: 8px; color: #7f8c8d; font-size: 0.9em; white-space: nowrap;">（密码为1，房间还未正常运行）</span></li>
     </ul>
 
     <h2>核心理念</h2>
     <ul class="service-list">
-        <li class="service-item">环境：旨在提供成长的优良环境</li>
-        <li class="service-item">社交：旨在连接长久的社交关系</li>
-        <li class="service-item">传承：旨在让经验和观念在一代代人真正地传承下去</li>
-        <li class="service-item">远见：旨在让人看见未来的可能</li>
+        <li class="service-item"><strong>环境：</strong>旨在提供成长的优良环境</li>
+        <li class="service-item"><strong>社交：</strong>旨在连接长久的社交关系</li>
+        <li class="service-item"><strong>传承：</strong>旨在让经验和观念在一代代人真正地传承下去</li>
+        <li class="service-item"><strong>远见：</strong>旨在让人看见未来的可能</li>
     </ul>
 
     <h2>AI 探索与实践</h2>
     <ul class="service-list">
-        <li class="service-item">AI 应用：分享和探讨 AI 在日常生活和工作中的创新应用。</li>
-        <li class="service-item">AI 教学：提供 AI 学习资源、教程和路线图，系统掌握 AI 知识。</li>
-        <li class="service-item">AI 开发：交流 AI 模型训练、部署和优化的技术实践。</li>
-        <li class="service-item">AI 自动化：利用 AI 技术实现工作流程自动化，提升生产力。</li>
+        <li class="service-item"><strong>AI 应用：</strong>分享和探讨 AI 在日常生活和工作中的创新应用。</li>
+        <li class="service-item"><strong>AI 教学：</strong>提供 AI 学习资源、教程和路线图，系统掌握 AI 知识。</li>
+        <li class="service-item"><strong>AI 开发：</strong>交流 AI 模型训练、部署和优化的技术实践。</li>
+        <li class="service-item"><strong>AI 自动化：</strong>利用 AI 技术实现工作流程自动化，提升生产力。</li>
     </ul>
     
     <div class="payment-info">
@@ -275,7 +325,7 @@ a:hover {
         <p>
             <strong>微信：</strong>qjumplife<br>
             <strong>邮箱：</strong><a href="mailto:qjumplife@outlook.com">qjumplife@outlook.com</a><br>
-            <strong>备用网址：</strong><a href="https://harmonious-otter-452dc3.netlify.app">harmonious-otter-452dc3.netlify.app</a>
+            <strong>备用网址：</strong><a href="https://steady-youtiao-7c5a8f.netlify.app">steady-youtiao-7c5a8f.netlify.app</a>
         </p>
         <p>付款后请通过微信或邮箱联系我开通权限，可能回复不及时，敬请谅解。</p>
         <div class="payment-qr-codes">
