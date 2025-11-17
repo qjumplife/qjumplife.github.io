@@ -202,6 +202,102 @@ a:hover {
 .payment-qr-codes img:hover {
     transform: scale(1.05);
 }
+
+/* Share Card Styles */
+.share-card {
+    display: flex;
+    align-items: center;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    margin-top: 30px;
+}
+.share-card:hover {
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+.share-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.share-card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.6em;
+    color: var(--text-color);
+}
+.share-card-content p {
+    margin: 0;
+    color: var(--text-color-light);
+    flex-grow: 1;
+}
+.share-card-actions {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 20px;
+    gap: 20px;
+}
+.share-card-qr {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.share-card-qr img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+}
+.share-card-qr span {
+    font-size: 0.9em;
+    color: var(--text-color-light);
+}
+.share-card-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+.share-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 0.95em;
+    font-family: 'Noto Sans SC', sans-serif;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+.share-btn:hover {
+    background-color: var(--bg-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+#share-btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+#share-btn:hover {
+    background-color: var(--primary-color-hover);
+    border-color: var(--primary-color-hover);
+    color: white;
+}
+.share-card-image {
+    width: 45%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-left: 25px;
+}
 @media (max-width: 992px) {
     .pricing-table {
         grid-template-columns: 1fr;
@@ -218,8 +314,22 @@ a:hover {
     .header {
         font-size: 2.2em;
     }
+    .share-card {
+        flex-direction: column-reverse;
+    }
+    .share-card-image {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 25px;
+    }
 }
 </style>
+<!-- Open Graph Meta Tags for Social Sharing -->
+<meta property="og:title" content="跃迁思维" />
+<meta property="og:description" content="一个提供人生跃迁工具与资源的综合性平台。" />
+<meta property="og:image" content="https://steady-youtiao-7c5a8f.netlify.app/屏幕截图 2025-11-18 010942.png" />
+<meta property="og:url" content="https://steady-youtiao-7c5a8f.netlify.app" />
+<meta property="og:type" content="website" />
 </head>
 <body>
 <div class="container">
@@ -320,12 +430,31 @@ a:hover {
         <li class="service-item"><strong>AI 自动化：</strong>利用 AI 技术实现工作流程自动化，提升生产力。</li>
     </ul>
     
+    <h2>分享页面</h2>
+    <div class="share-card">
+        <div class="share-card-content">
+            <h3>跃迁思维</h3>
+            <p>一个提供人生跃迁工具与资源的综合性平台。</p>
+            <div class="share-card-actions">
+                <div class="share-card-qr">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;data=https://steady-youtiao-7c5a8f.netlify.app" alt="分享二维码">
+                    <span>扫码分享</span>
+                </div>
+                <div class="share-card-buttons">
+                    <button id="copy-link-btn" class="share-btn">复制链接</button>
+                    <button id="share-btn" class="share-btn">立即分享</button>
+                </div>
+            </div>
+        </div>
+        <img src="屏幕截图 2025-11-18 010942.png" alt="跃迁思维工具截图" class="share-card-image">
+    </div>
+    
     <div class="payment-info">
         <h2>联系与支付</h2>
         <p>
             <strong>微信：</strong>qjumplife<br>
             <strong>邮箱：</strong><a href="mailto:qjumplife@outlook.com">qjumplife@outlook.com</a><br>
-            <strong>备用网址：</strong><a href="https://steady-youtiao-7c5a8f.netlify.app">steady-youtiao-7c5a8f.netlify.app</a>
+            <strong>网址：</strong><a href="https://steady-youtiao-7c5a8f.netlify.app">steady-youtiao-7c5a8f.netlify.app</a>
         </p>
         <p>付款后请通过微信或邮箱联系我开通权限，可能回复不及时，敬请谅解。</p>
         <div class="payment-qr-codes">
@@ -341,5 +470,59 @@ a:hover {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const shareUrl = 'https://steady-youtiao-7c5a8f.netlify.app';
+    const shareTitle = '跃迁思维';
+    const shareText = '一个提供人生跃迁工具与资源的综合性平台。';
+
+    const copyBtn = document.getElementById('copy-link-btn');
+    const shareBtn = document.getElementById('share-btn');
+
+    // --- Copy to Clipboard functionality ---
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            navigator.clipboard.writeText(shareUrl).then(function() {
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = '已复制!';
+                copyBtn.style.backgroundColor = '#28a745'; // Success color
+                copyBtn.style.borderColor = '#28a745';
+                setTimeout(function() {
+                    copyBtn.textContent = originalText;
+                    copyBtn.style.backgroundColor = ''; // Revert style
+                    copyBtn.style.borderColor = '';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('无法复制链接: ', err);
+                alert('复制失败，您的浏览器可能不支持此功能。');
+            });
+        });
+    }
+
+    // --- Web Share API functionality ---
+    if (navigator.share) {
+        if (shareBtn) {
+            shareBtn.addEventListener('click', async function(event) {
+                event.preventDefault();
+                try {
+                    await navigator.share({
+                        title: shareTitle,
+                        text: shareText,
+                        url: shareUrl,
+                    });
+                } catch (err) {
+                    console.error('分享功能出错:', err);
+                }
+            });
+        }
+    } else {
+        // If Web Share API is not supported, hide the native share button
+        if (shareBtn) {
+            shareBtn.style.display = 'none';
+        }
+    }
+});
+</script>
 </body>
 </html>
